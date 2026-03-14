@@ -3,7 +3,12 @@ import 'package:google_fonts/google_fonts.dart';
 
 class AppTextStyles {
   static TextStyle nameTextStyle = GoogleFonts.googleSans(
-    fontSize: 28,
+    fontSize: 22,
+    color: Colors.white,
+  );
+
+  static TextStyle bodyTextStyle = GoogleFonts.googleSans(
+    fontSize: 14,
     color: Colors.white,
   );
 }
