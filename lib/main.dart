@@ -85,12 +85,28 @@ class _MyHomePageState extends State<MyHomePage> {
               ],
             ),
             Row(
-              spacing: AppConsts.spacing8,
+              spacing: AppConsts.spacing46,
               children: [
-                Icon(Icons.info_outline, size: 22, color: Colors.white),
-                Text(
-                  'Dart 3.11.0 • Flutter 3.41.2',
-                  style: AppTextStyles.bodyTextStyle,
+                Row(
+                  spacing: AppConsts.spacing8,
+                  children: [
+                    Icon(
+                      Icons.settings_input_component,
+                      size: 22,
+                      color: Colors.white,
+                    ),
+                    Text(
+                      'Dart 3.11.0 • Flutter 3.41.2',
+                      style: AppTextStyles.bodyTextStyle,
+                    ),
+                  ],
+                ),
+                Row(
+                  spacing: AppConsts.spacing8,
+                  children: [
+                    Icon(Icons.info_outline, size: 22, color: Colors.white),
+                    Text('Stable channel', style: AppTextStyles.bodyTextStyle),
+                  ],
                 ),
               ],
             ),
