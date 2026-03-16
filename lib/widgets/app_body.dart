@@ -16,13 +16,13 @@ class _AppBodyState extends State<AppBody> {
 
   // Define your target matches
   final targetMatches = [
-    MatchTargetItem.text(
-      'main', // Match exact text
+    MatchTargetItem.pattern(
+      r'main|variable|print', // Match exact text
       style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
     ),
     MatchTargetItem.pattern(
-      r'\bFlutter\b', // Match the word "Flutter"
-      style: const TextStyle(color: Colors.green),
+      r'\"|Mike|Julia|Result|\:|\"|\"', // Match exact text
+      style: const TextStyle(color: Colors.red),
       onTap: (match) {
         print('Tapped on match: $match');
       },
@@ -47,8 +47,7 @@ void main() {
   var variable = "Mike";
   var variable = "Julia";
 
-  print("Is variable = variable? : \${variable = variable}");
-  print("Is variable == variable? : \${variable == variable}");
+  print("Result: \${variable = variable}");
 }
                       """,
                       targetMatches: targetMatches,
