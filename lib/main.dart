@@ -82,6 +82,17 @@ class _MyHomePageState extends State<MyHomePage> {
                     ),
                   ],
                 ),
+                Row(
+                  spacing: AppConsts.spacing8,
+                  children: [
+                    Text('Feedback', style: AppTextStyles.bodyTextStyle),
+                    Icon(
+                      Icons.ios_share,
+                      color: Colors.white,
+                      size: AppConsts.iconSize18,
+                    ),
+                  ],
+                ),
               ],
             ),
             Row(
@@ -90,11 +101,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   spacing: AppConsts.spacing8,
                   children: [
-                    Icon(
-                      Icons.settings_input_component,
-                      size: 22,
-                      color: Colors.white,
-                    ),
+                    Icon(Icons.info_outline, size: 22, color: Colors.white),
                     Text(
                       'Dart 3.11.0 • Flutter 3.41.2',
                       style: AppTextStyles.bodyTextStyle,
@@ -104,7 +111,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 Row(
                   spacing: AppConsts.spacing8,
                   children: [
-                    Icon(Icons.info_outline, size: 22, color: Colors.white),
+                    Icon(Icons.sort_outlined, size: 22, color: Colors.white),
                     Text('Stable channel', style: AppTextStyles.bodyTextStyle),
                   ],
                 ),
