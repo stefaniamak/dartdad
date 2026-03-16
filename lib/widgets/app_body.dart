@@ -42,16 +42,23 @@ class _AppBodyState extends State<AppBody> {
                 Expanded(
                   child: TextField(
                     controller: RichTextController(
-                      // text: 'Type "highlight" or "Flutter" here!',
+                      text: """
+void main() {
+  var variable = "Mike";
+  var variable = "Julia";
+
+  print("Is variable = variable? : \${variable = variable}");
+  print("Is variable == variable? : \${variable == variable}");
+}
+                      """,
                       targetMatches: targetMatches,
-                      onMatch: (matches) {
-                        print('Matched: $matches');
-                      },
+                      onMatch: (matches) {},
                     ),
                     decoration: null,
                     cursorColor: Colors.white,
                     style: TextStyle(
                       color: Colors.white,
+                      fontSize: 14,
                       fontFamily: GoogleFonts.firaCode().fontFamily,
                     ),
                     maxLines: null,
