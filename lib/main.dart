@@ -29,17 +29,27 @@ class _MyHomePageState extends State<MyHomePage> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: Color(AppColors.primaryColor),
       appBar: AppBar(
         toolbarHeight: AppConsts.kAppToolbarHeight,
         backgroundColor: Color(AppColors.primaryColor),
         title: AppHeader(),
         titleTextStyle: TextStyle(color: Colors.white),
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: <Widget>[],
-        ),
+      body: Row(
+        spacing: AppConsts.spacing8,
+        children: <Widget>[
+          Expanded(child: Container(color: Color(AppColors.darkColor))),
+          Expanded(
+            child: Column(
+              spacing: AppConsts.spacing8,
+              children: [
+                Expanded(child: Container(color: Color(AppColors.darkColor))),
+                Expanded(child: Container(color: Color(AppColors.darkColor))),
+              ],
+            ),
+          ),
+        ],
       ),
       bottomNavigationBar: AppBottomNavigationBar(),
     );
