@@ -2,6 +2,7 @@ import 'package:dart_dad/consts/assets/app_colors.dart';
 import 'package:dart_dad/consts/assets/app_consts.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
+import 'package:rich_text_controller/rich_text_controller.dart';
 
 class AppBody extends StatefulWidget {
   const AppBody({super.key});
@@ -12,6 +13,21 @@ class AppBody extends StatefulWidget {
 
 class _AppBodyState extends State<AppBody> {
   final TextEditingController _textEditingController = TextEditingController();
+
+  // Define your target matches
+  final targetMatches = [
+    MatchTargetItem.text(
+      'main', // Match exact text
+      style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+    ),
+    MatchTargetItem.pattern(
+      r'\bFlutter\b', // Match the word "Flutter"
+      style: const TextStyle(color: Colors.green),
+      onTap: (match) {
+        print('Tapped on match: $match');
+      },
+    ),
+  ];
 
   @override
   Widget build(BuildContext context) {
@@ -25,7 +41,13 @@ class _AppBodyState extends State<AppBody> {
               children: [
                 Expanded(
                   child: TextField(
-                    controller: _textEditingController,
+                    controller: RichTextController(
+                      // text: 'Type "highlight" or "Flutter" here!',
+                      targetMatches: targetMatches,
+                      onMatch: (matches) {
+                        print('Matched: $matches');
+                      },
+                    ),
                     decoration: null,
                     cursorColor: Colors.white,
                     style: TextStyle(
