@@ -1,6 +1,7 @@
 import 'package:dart_dad/consts/assets/app_colors.dart';
 import 'package:dart_dad/consts/assets/app_consts.dart';
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class AppBody extends StatefulWidget {
   const AppBody({super.key});
@@ -27,9 +28,12 @@ class _AppBodyState extends State<AppBody> {
                     controller: _textEditingController,
                     decoration: null,
                     cursorColor: Colors.white,
-
-                    // maxLines: null,null
-                    // expands: true,
+                    style: TextStyle(
+                      color: Colors.white,
+                      fontFamily: GoogleFonts.firaCode().fontFamily,
+                    ),
+                    maxLines: null,
+                    expands: true,
                   ),
                 ),
               ],
