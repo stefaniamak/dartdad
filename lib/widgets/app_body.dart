@@ -18,11 +18,14 @@ class _AppBodyState extends State<AppBody> {
   final targetMatches = [
     MatchTargetItem.pattern(
       r'main|variable|print', // Match exact text
-      style: const TextStyle(color: Colors.blue, fontWeight: FontWeight.bold),
+      style: const TextStyle(
+        color: Color(AppColors.blueColor),
+        fontWeight: FontWeight.bold,
+      ),
     ),
     MatchTargetItem.pattern(
       r'\"|Mike|Julia|Result|\:|\"|\"', // Match exact text
-      style: const TextStyle(color: Colors.red),
+      style: const TextStyle(color: Color(AppColors.redColor)),
       onTap: (match) {
         print('Tapped on match: $match');
       },
