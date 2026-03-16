@@ -1,5 +1,6 @@
 import 'package:dart_dad/consts/assets/app_colors.dart';
 import 'package:dart_dad/consts/assets/app_consts.dart';
+import 'package:dart_dad/widgets/app_body.dart';
 import 'package:dart_dad/widgets/app_bottom_navigation_bar.dart';
 import 'package:dart_dad/widgets/app_header.dart';
 import 'package:flutter/material.dart';
@@ -36,21 +37,7 @@ class _MyHomePageState extends State<MyHomePage> {
         title: AppHeader(),
         titleTextStyle: TextStyle(color: Colors.white),
       ),
-      body: Row(
-        spacing: AppConsts.spacing8,
-        children: <Widget>[
-          Expanded(child: Container(color: Color(AppColors.darkColor))),
-          Expanded(
-            child: Column(
-              spacing: AppConsts.spacing8,
-              children: [
-                Expanded(child: Container(color: Color(AppColors.darkColor))),
-                Expanded(child: Container(color: Color(AppColors.darkColor))),
-              ],
-            ),
-          ),
-        ],
-      ),
+      body: AppBody(),
       bottomNavigationBar: AppBottomNavigationBar(),
     );
   }
