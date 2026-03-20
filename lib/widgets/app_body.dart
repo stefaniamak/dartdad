@@ -97,10 +97,11 @@ void main() {
                           setState(() {
                             // if variable = variable => true | same name
                             // if variable == variable => false | same value
-
-                            // if()
-
-                            codeResults = 'Result: true';
+                            if (richTextController.text.contains('==')) {
+                              codeResults = 'Result: false';
+                            } else {
+                              codeResults = 'Result: true';
+                            }
                           });
                         },
                         icon: Icon(Icons.play_arrow),
