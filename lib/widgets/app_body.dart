@@ -120,10 +120,10 @@ class _AppBodyState extends State<AppBody> {
       controller: RichTextController(
         text: """
 void main() {
-var variable = "Mike";
-var variable = "Julia";
+  var variable = "Mike";
+  var variable = "Julia";
 
-print("Result: \${variable = variable}");
+  print("Result: \${variable = variable}");
 }
                     """,
         targetMatches: targetMatches,
