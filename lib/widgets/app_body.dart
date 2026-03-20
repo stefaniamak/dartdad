@@ -13,24 +13,33 @@ class AppBody extends StatefulWidget {
 
 class _AppBodyState extends State<AppBody> {
   String codeResults = 'test';
+  RichTextController richTextController = RichTextController(
+    text: """
+void main() {
+  var variable = "Mike";
+  var variable = "Julia";
 
-  // Define your target matches
-  final targetMatches = [
-    MatchTargetItem.pattern(
-      r'main|variable|print', // Match exact text
-      style: const TextStyle(
-        color: Color(AppColors.blueColor),
-        fontWeight: FontWeight.bold,
+  print("Result: \${variable = variable}");
+}
+                    """,
+    onMatch: (matches) {},
+    targetMatches: [
+      MatchTargetItem.pattern(
+        r'main|variable|print', // Match exact text
+        style: const TextStyle(
+          color: Color(AppColors.blueColor),
+          fontWeight: FontWeight.bold,
+        ),
       ),
-    ),
-    MatchTargetItem.pattern(
-      r'\"|Mike|Julia|Result|\:|\"|\"', // Match exact text
-      style: const TextStyle(color: Color(AppColors.redColor)),
-      onTap: (match) {
-        print('Tapped on match: $match');
-      },
-    ),
-  ];
+      MatchTargetItem.pattern(
+        r'\"|Mike|Julia|Result|\:|\"|\"', // Match exact text
+        style: const TextStyle(color: Color(AppColors.redColor)),
+        onTap: (match) {
+          print('Tapped on match: $match');
+        },
+      ),
+    ],
+  );
 
   @override
   Widget build(BuildContext context) {
@@ -86,6 +95,11 @@ class _AppBodyState extends State<AppBody> {
                       FilledButton.icon(
                         onPressed: () {
                           setState(() {
+                            // if variable = variable => true | same name
+                            // if variable == variable => false | same value
+
+                            // if()
+
                             codeResults = 'Result: true';
                           });
                         },
@@ -171,18 +185,7 @@ class _AppBodyState extends State<AppBody> {
 
   TextField buildCodeTextField() {
     return TextField(
-      controller: RichTextController(
-        text: """
-void main() {
-  var variable = "Mike";
-  var variable = "Julia";
-
-  print("Result: \${variable = variable}");
-}
-                    """,
-        targetMatches: targetMatches,
-        onMatch: (matches) {},
-      ),
+      controller: richTextController,
       decoration: null,
       cursorColor: Colors.white,
       style: AppTextStyles.codeTextStyle,
