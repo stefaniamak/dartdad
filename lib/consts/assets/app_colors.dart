@@ -4,4 +4,5 @@ class AppColors {
   static const redColor = 0xFFe8617e;
   static const blueColor = 0xFF5fcff6;
   static const lightBlueColor = 0xFF4088f5;
+  static const iconButtonBlueColor = 0xFF324153;
 }

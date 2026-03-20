@@ -15,7 +15,22 @@ class MyApp extends StatelessWidget {
   // This widget is the root of your application.
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(title: 'DartDad', home: const MyHomePage());
+    return MaterialApp(
+      title: 'DartDad',
+      theme: ThemeData(
+        iconButtonTheme: IconButtonThemeData(
+          style: IconButton.styleFrom(
+            minimumSize: Size(AppConsts.spacing32, AppConsts.spacing32),
+            backgroundColor: Color(AppColors.iconButtonBlueColor),
+            shape: RoundedRectangleBorder(
+              borderRadius: BorderRadius.circular(AppConsts.spacing46),
+            ),
+          ),
+        ),
+      ),
+
+      home: const MyHomePage(),
+    );
   }
 }
 

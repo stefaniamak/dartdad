@@ -91,19 +91,51 @@ class _AppBodyState extends State<AppBody> {
               Expanded(
                 child: Container(
                   color: Color(AppColors.darkColor),
-                  child: Row(
+
+                  child: Stack(
                     children: [
-                      Expanded(
-                        child: Text(
-                          codeResults,
-                          style: AppTextStyles.codeTextStyle,
+                      Positioned(
+                        top: AppConsts.spacing8,
+                        left: AppConsts.spacing8,
+                        bottom: AppConsts.spacing8,
+                        right: AppConsts.spacing8,
+                        child: Row(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                codeResults,
+                                style: AppTextStyles.codeTextStyle,
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+
+                      Positioned(
+                        top: AppConsts.spacing16,
+                        right: AppConsts.spacing24,
+                        child: Row(
+                          children: [
+                            IconButton(
+                              onPressed: () {
+                                setState(() {
+                                  codeResults = '';
+                                });
+                              },
+                              icon: Icon(
+                                Icons.delete_sweep,
+                                color: Colors.white,
+                                size: AppConsts.iconSize18,
+                              ),
+                            ),
+                          ],
                         ),
                       ),
                     ],
                   ),
                 ),
               ),
-              // Expanded(child: Container(color: Color(AppColors.darkColor))),
             ],
           ),
         ),
