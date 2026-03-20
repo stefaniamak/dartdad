@@ -1,3 +1,5 @@
+import 'dart:math';
+
 import 'package:dart_dad/consts/assets/app_colors.dart';
 import 'package:dart_dad/consts/assets/app_consts.dart';
 import 'package:dart_dad/consts/text_styles.dart';
@@ -12,7 +14,10 @@ class AppBody extends StatefulWidget {
 }
 
 class _AppBodyState extends State<AppBody> {
-  String codeResults = 'test';
+  var random = Random();
+  bool isFakeLoading = false;
+
+  String codeResults = '';
   RichTextController richTextController = RichTextController(
     text: """
 void main() {
@@ -95,13 +100,30 @@ void main() {
                       FilledButton.icon(
                         onPressed: () {
                           setState(() {
-                            // if variable = variable => true | same name
-                            // if variable == variable => false | same value
-                            if (richTextController.text.contains('==')) {
-                              codeResults = 'Result: false';
-                            } else {
-                              codeResults = 'Result: true';
-                            }
+                            print('loading');
+                            isFakeLoading = true;
+                            Future.delayed(
+                              Duration(milliseconds: random.nextInt(1000)),
+                            ).then((_) {
+                              print('delay');
+                              setState(() {
+                                isFakeLoading = false;
+                                codeResults = '';
+                              });
+                              Future.delayed(
+                                Duration(seconds: random.nextInt(4)),
+                              ).then((_) {
+                                // if variable = variable => true | same name
+                                // if variable == variable => false | same value
+                                setState(() {
+                                  if (richTextController.text.contains('==')) {
+                                    codeResults = 'Result: false';
+                                  } else {
+                                    codeResults = 'Result: true';
+                                  }
+                                });
+                              });
+                            });
                           });
                         },
                         icon: Icon(Icons.play_arrow),
@@ -133,7 +155,6 @@ void main() {
               Expanded(
                 child: Container(
                   color: Color(AppColors.darkColor),
-
                   child: Stack(
                     children: [
                       Positioned(
@@ -153,7 +174,6 @@ void main() {
                           ],
                         ),
                       ),
-
                       Positioned(
                         top: AppConsts.spacing16,
                         right: AppConsts.spacing24,
@@ -173,6 +193,17 @@ void main() {
                           ],
                         ),
                       ),
+                      if (isFakeLoading)
+                        Positioned.fill(
+                          child: Container(
+                            color: Color(AppColors.primaryColor).withAlpha(190),
+                            child: Center(
+                              child: CircularProgressIndicator(
+                                color: Color(AppColors.loaderColor),
+                              ),
+                            ),
+                          ),
+                        ),
                     ],
                   ),
                 ),
