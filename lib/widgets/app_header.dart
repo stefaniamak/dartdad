@@ -14,12 +14,49 @@ class AppHeader extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         Row(
+          spacing: AppConsts.spacing64,
           children: [
-            SvgPicture.network(
-              AppAssets.dartLogoUrl,
-              width: AppConsts.spacing36,
+            Row(
+              spacing: AppConsts.spacing4,
+              children: [
+                SvgPicture.network(
+                  AppAssets.dartLogoUrl,
+                  width: AppConsts.spacing36,
+                ),
+                Text('DartDad', style: AppTextStyles.nameTextStyle),
+              ],
             ),
-            Text('DartDad', style: AppTextStyles.nameTextStyle),
+            Row(
+              spacing: AppConsts.spacing16,
+              children: [
+                TextButton.icon(
+                  onPressed: () {},
+                  icon: Icon(Icons.add_circle_outlined, color: Colors.white),
+                  label: Text('Create', style: TextStyle(color: Colors.white)),
+                ),
+                TextButton.icon(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.diamond,
+                    color: Colors.blueAccent,
+                    size: AppConsts.iconSize20,
+                  ),
+                  label: Text(
+                    'Create with Gemini',
+                    style: TextStyle(color: Colors.white),
+                  ),
+                ),
+                TextButton.icon(
+                  onPressed: () {},
+                  icon: Icon(
+                    Icons.wrap_text_sharp,
+                    color: Colors.white,
+                    size: AppConsts.spacing16,
+                  ),
+                  label: Text('Samples', style: TextStyle(color: Colors.white)),
+                ),
+              ],
+            ),
           ],
         ),
         Row(
