@@ -11,4 +11,10 @@ class AppTextStyles {
     fontSize: 14,
     color: Colors.white,
   );
+
+  static TextStyle codeTextStyle = TextStyle(
+    color: Colors.white,
+    fontSize: 14,
+    fontFamily: GoogleFonts.firaCode().fontFamily,
+  );
 }

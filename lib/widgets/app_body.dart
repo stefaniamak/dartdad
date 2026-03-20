@@ -1,7 +1,7 @@
 import 'package:dart_dad/consts/assets/app_colors.dart';
 import 'package:dart_dad/consts/assets/app_consts.dart';
+import 'package:dart_dad/consts/text_styles.dart';
 import 'package:flutter/material.dart';
-import 'package:google_fonts/google_fonts.dart';
 import 'package:rich_text_controller/rich_text_controller.dart';
 
 class AppBody extends StatefulWidget {
@@ -12,7 +12,7 @@ class AppBody extends StatefulWidget {
 }
 
 class _AppBodyState extends State<AppBody> {
-  final TextEditingController _textEditingController = TextEditingController();
+  String codeResults = 'test';
 
   // Define your target matches
   final targetMatches = [
@@ -57,7 +57,11 @@ class _AppBodyState extends State<AppBody> {
                   child: Row(
                     children: [
                       FilledButton.icon(
-                        onPressed: () {},
+                        onPressed: () {
+                          setState(() {
+                            codeResults = 'Result: true';
+                          });
+                        },
                         icon: Icon(Icons.play_arrow),
                         label: Text('Run'),
                         style: TextButton.styleFrom(
@@ -87,20 +91,12 @@ class _AppBodyState extends State<AppBody> {
               Expanded(
                 child: Container(
                   color: Color(AppColors.darkColor),
-                  child: Column(
+                  child: Row(
                     children: [
                       Expanded(
-                        child: TextField(
-                          controller: _textEditingController,
-                          decoration: null,
-                          cursorColor: Colors.white,
-                          style: TextStyle(
-                            color: Colors.white,
-                            fontSize: 14,
-                            fontFamily: GoogleFonts.firaCode().fontFamily,
-                          ),
-                          maxLines: null,
-                          expands: true,
+                        child: Text(
+                          codeResults,
+                          style: AppTextStyles.codeTextStyle,
                         ),
                       ),
                     ],
@@ -131,11 +127,7 @@ void main() {
       ),
       decoration: null,
       cursorColor: Colors.white,
-      style: TextStyle(
-        color: Colors.white,
-        fontSize: 14,
-        fontFamily: GoogleFonts.firaCode().fontFamily,
-      ),
+      style: AppTextStyles.codeTextStyle,
       maxLines: null,
       expands: true,
     );
