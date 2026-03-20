@@ -126,7 +126,6 @@ class _AppBodyState extends State<AppBody> {
                               icon: Icon(
                                 Icons.delete_sweep,
                                 color: Colors.white,
-                                size: AppConsts.iconSize18,
                               ),
                             ),
                           ],
