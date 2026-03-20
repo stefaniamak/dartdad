@@ -55,7 +55,34 @@ class _AppBodyState extends State<AppBody> {
                   top: AppConsts.spacing16,
                   right: AppConsts.spacing24,
                   child: Row(
+                    spacing: AppConsts.spacing16,
                     children: [
+                      Row(
+                        spacing: AppConsts.spacing8,
+                        children: [
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.query_builder,
+                              color: Colors.white,
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.file_copy_outlined,
+                              color: Colors.white,
+                            ),
+                          ),
+                          IconButton(
+                            onPressed: () {},
+                            icon: Icon(
+                              Icons.format_align_left,
+                              color: Colors.white,
+                            ),
+                          ),
+                        ],
+                      ),
                       FilledButton.icon(
                         onPressed: () {
                           setState(() {

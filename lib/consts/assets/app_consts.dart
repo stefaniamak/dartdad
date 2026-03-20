@@ -11,6 +11,7 @@ class AppConsts {
   static double spacing36 = 36;
   static double spacing46 = 46;
 
+  static double iconSize16 = 16;
   static double iconSize18 = 18;
   static double iconSize20 = 20;
 }

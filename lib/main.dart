@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         iconButtonTheme: IconButtonThemeData(
           style: IconButton.styleFrom(
-            iconSize: AppConsts.iconSize18,
+            iconSize: AppConsts.iconSize16,
             minimumSize: Size(AppConsts.spacing32, AppConsts.spacing32),
             backgroundColor: Color(AppColors.iconButtonBlueColor),
             shape: RoundedRectangleBorder(
