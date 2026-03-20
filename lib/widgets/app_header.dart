@@ -11,9 +11,29 @@ class AppHeader extends StatelessWidget {
   Widget build(BuildContext context) {
     return Row(
       spacing: AppConsts.spacing8,
+      mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
-        SvgPicture.network(AppAssets.dartLogoUrl, width: AppConsts.spacing36),
-        Text('DartDad', style: AppTextStyles.nameTextStyle),
+        Row(
+          children: [
+            SvgPicture.network(
+              AppAssets.dartLogoUrl,
+              width: AppConsts.spacing36,
+            ),
+            Text('DartDad', style: AppTextStyles.nameTextStyle),
+          ],
+        ),
+        Row(
+          spacing: AppConsts.spacing16,
+          children: [
+            TextButton.icon(
+              onPressed: () {},
+              icon: Icon(Icons.get_app_rounded, color: Colors.white),
+              label: Text('Open in', style: TextStyle(color: Colors.white)),
+            ),
+            Icon(Icons.light_mode_outlined, color: Colors.white),
+            Icon(Icons.more_vert, color: Colors.white),
+          ],
+        ),
       ],
     );
   }

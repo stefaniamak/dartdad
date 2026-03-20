@@ -17,6 +17,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'DartDad',
+      debugShowCheckedModeBanner: false,
       theme: ThemeData(
         iconButtonTheme: IconButtonThemeData(
           style: IconButton.styleFrom(
@@ -52,6 +53,7 @@ class _MyHomePageState extends State<MyHomePage> {
         backgroundColor: Color(AppColors.primaryColor),
         title: AppHeader(),
         titleTextStyle: TextStyle(color: Colors.white),
+        titleSpacing: AppConsts.spacing8,
       ),
       body: AppBody(),
       bottomNavigationBar: AppBottomNavigationBar(),
