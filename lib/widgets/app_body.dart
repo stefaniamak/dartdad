@@ -40,31 +40,40 @@ class _AppBodyState extends State<AppBody> {
         Expanded(
           child: Container(
             color: Color(AppColors.darkColor),
-            child: Column(
+            child: Stack(
               children: [
-                Expanded(
-                  child: TextField(
-                    controller: RichTextController(
-                      text: """
-void main() {
-  var variable = "Mike";
-  var variable = "Julia";
-
-  print("Result: \${variable = variable}");
-}
-                      """,
-                      targetMatches: targetMatches,
-                      onMatch: (matches) {},
-                    ),
-                    decoration: null,
-                    cursorColor: Colors.white,
-                    style: TextStyle(
-                      color: Colors.white,
-                      fontSize: 14,
-                      fontFamily: GoogleFonts.firaCode().fontFamily,
-                    ),
-                    maxLines: null,
-                    expands: true,
+                Positioned(
+                  top: AppConsts.spacing8,
+                  left: AppConsts.spacing8,
+                  bottom: AppConsts.spacing8,
+                  right: AppConsts.spacing8,
+                  child: Column(
+                    children: [Expanded(child: buildCodeTextField())],
+                  ),
+                ),
+                Positioned(
+                  top: AppConsts.spacing16,
+                  right: AppConsts.spacing24,
+                  child: Row(
+                    children: [
+                      FilledButton.icon(
+                        onPressed: () {},
+                        icon: Icon(Icons.play_arrow),
+                        label: Text('Run'),
+                        style: TextButton.styleFrom(
+                          backgroundColor: Color(AppColors.lightBlueColor),
+                          foregroundColor: Colors.black,
+                          padding: EdgeInsets.symmetric(
+                            horizontal: AppConsts.spacing12,
+                          ),
+                          shape: RoundedRectangleBorder(
+                            borderRadius: BorderRadius.all(
+                              Radius.circular(AppConsts.spacing4),
+                            ),
+                          ),
+                        ),
+                      ),
+                    ],
                   ),
                 ),
               ],
@@ -75,12 +84,60 @@ void main() {
           child: Column(
             spacing: AppConsts.spacing8,
             children: [
-              Expanded(child: Container(color: Color(AppColors.darkColor))),
-              Expanded(child: Container(color: Color(AppColors.darkColor))),
+              Expanded(
+                child: Container(
+                  color: Color(AppColors.darkColor),
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: TextField(
+                          controller: _textEditingController,
+                          decoration: null,
+                          cursorColor: Colors.white,
+                          style: TextStyle(
+                            color: Colors.white,
+                            fontSize: 14,
+                            fontFamily: GoogleFonts.firaCode().fontFamily,
+                          ),
+                          maxLines: null,
+                          expands: true,
+                        ),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+              // Expanded(child: Container(color: Color(AppColors.darkColor))),
             ],
           ),
         ),
       ],
+    );
+  }
+
+  TextField buildCodeTextField() {
+    return TextField(
+      controller: RichTextController(
+        text: """
+void main() {
+var variable = "Mike";
+var variable = "Julia";
+
+print("Result: \${variable = variable}");
+}
+                    """,
+        targetMatches: targetMatches,
+        onMatch: (matches) {},
+      ),
+      decoration: null,
+      cursorColor: Colors.white,
+      style: TextStyle(
+        color: Colors.white,
+        fontSize: 14,
+        fontFamily: GoogleFonts.firaCode().fontFamily,
+      ),
+      maxLines: null,
+      expands: true,
     );
   }
 }
