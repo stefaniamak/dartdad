@@ -6,4 +6,5 @@ class AppColors {
   static const lightBlueColor = 0xFF4088f5;
   static const iconButtonBlueColor = 0xFF324153;
   static const loaderColor = 0xFFa5caf7;
+  static const greyColor = 0xFF909090;
 }
