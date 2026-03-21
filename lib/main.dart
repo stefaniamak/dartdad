@@ -19,6 +19,9 @@ class MyApp extends StatelessWidget {
       title: 'DartDad',
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
+        textSelectionTheme: TextSelectionThemeData(
+          selectionColor: Color(AppColors.loaderColor).withAlpha(90),
+        ),
         iconButtonTheme: IconButtonThemeData(
           style: IconButton.styleFrom(
             iconSize: AppConsts.iconSize16,
