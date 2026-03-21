@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       theme: ThemeData(
         textSelectionTheme: TextSelectionThemeData(
-          selectionColor: Color(AppColors.loaderColor).withAlpha(90),
+          selectionColor: Color(AppColors.loaderColor).withAlpha(40),
         ),
         iconButtonTheme: IconButtonThemeData(
           style: IconButton.styleFrom(

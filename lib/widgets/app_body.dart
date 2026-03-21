@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'dart:ui';
 
 import 'package:dart_dad/consts/assets/app_colors.dart';
 import 'package:dart_dad/consts/assets/app_consts.dart';
@@ -259,6 +260,9 @@ void main() {
       style: AppTextStyles.codeTextStyle.copyWith(fontWeight: FontWeight.bold),
       maxLines: null,
       expands: true,
+      selectionWidthStyle: BoxWidthStyle.max,
+      selectionHeightStyle: BoxHeightStyle.max,
+      clipBehavior: Clip.none,
     );
   }
 }
