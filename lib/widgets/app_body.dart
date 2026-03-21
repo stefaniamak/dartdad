@@ -23,7 +23,7 @@ class _AppBodyState extends State<AppBody> {
 void main() {
   var variable = "Mike";
   var variable = "Julia";
-
+ 
   print("Result: \${variable = variable}");
 }
                     """,
