@@ -17,6 +17,7 @@ class _AppBodyState extends State<AppBody> {
   var random = Random();
   bool isFakeLoading = false;
 
+  int totalLines = 1;
   String codeResults = '';
   RichTextController richTextController = RichTextController(
     text: """
@@ -31,20 +32,31 @@ void main() {
     targetMatches: [
       MatchTargetItem.pattern(
         r'main|variable|print', // Match exact text
-        style: const TextStyle(
-          color: Color(AppColors.blueColor),
-          fontWeight: FontWeight.bold,
-        ),
+        style: const TextStyle(color: Color(AppColors.blueColor)),
       ),
       MatchTargetItem.pattern(
         r'\"|Mike|Julia|Result|\:|\"|\"', // Match exact text
-        style: const TextStyle(color: Color(AppColors.redColor)),
+        style: const TextStyle(
+          color: Color(AppColors.redColor),
+          fontWeight: FontWeight.bold,
+        ),
         onTap: (match) {
           print('Tapped on match: $match');
         },
       ),
     ],
   );
+
+  @override
+  void initState() {
+    super.initState();
+
+    richTextController.addListener(() {
+      setState(() {
+        totalLines = richTextController.text.split('\n').length;
+      });
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -58,11 +70,31 @@ void main() {
               children: [
                 Positioned(
                   top: AppConsts.spacing8,
-                  left: AppConsts.spacing8,
+                  left: AppConsts.spacing24,
                   bottom: AppConsts.spacing8,
                   right: AppConsts.spacing8,
-                  child: Column(
-                    children: [Expanded(child: buildCodeTextField())],
+                  child: Row(
+                    spacing: AppConsts.spacing8,
+                    children: [
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        children: List.generate(
+                          richTextController.text.split('\n').length,
+                          (int index) => Text(
+                            (index + 1).toString(),
+                            style: AppTextStyles.codeTextStyle.copyWith(
+                              color: Color(AppColors.greyColor),
+                              fontWeight: FontWeight.w600,
+                            ),
+                          ),
+                        ),
+                      ),
+                      Expanded(
+                        child: Column(
+                          children: [Expanded(child: buildCodeTextField())],
+                        ),
+                      ),
+                    ],
                   ),
                 ),
                 Positioned(
@@ -184,6 +216,10 @@ void main() {
                                 setState(() {
                                   codeResults = '';
                                 });
+
+                                print(
+                                  richTextController.text.split('\n').length,
+                                );
                               },
                               icon: Icon(
                                 Icons.delete_sweep,
@@ -220,7 +256,7 @@ void main() {
       controller: richTextController,
       decoration: null,
       cursorColor: Colors.white,
-      style: AppTextStyles.codeTextStyle,
+      style: AppTextStyles.codeTextStyle.copyWith(fontWeight: FontWeight.bold),
       maxLines: null,
       expands: true,
     );
