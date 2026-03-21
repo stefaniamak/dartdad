@@ -166,7 +166,7 @@ void main() {
                           crossAxisAlignment: CrossAxisAlignment.start,
                           children: [
                             Expanded(
-                              child: Text(
+                              child: SelectableText(
                                 codeResults,
                                 style: AppTextStyles.codeTextStyle,
                               ),
