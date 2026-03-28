@@ -36,7 +36,7 @@ class AppHeader extends StatelessWidget {
                 ),
                 TextButton.icon(
                   onPressed: () {},
-                  icon: Image.asset(
+                  icon: SvgPicture.asset(
                     AppAssets.geminiLogo,
                     width: AppConsts.spacing16,
                   ),
