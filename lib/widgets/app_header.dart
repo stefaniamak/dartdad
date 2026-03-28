@@ -36,10 +36,9 @@ class AppHeader extends StatelessWidget {
                 ),
                 TextButton.icon(
                   onPressed: () {},
-                  icon: Icon(
-                    Icons.diamond,
-                    color: Colors.blueAccent,
-                    size: AppConsts.iconSize20,
+                  icon: Image.asset(
+                    AppAssets.geminiLogo,
+                    width: AppConsts.spacing16,
                   ),
                   label: Text(
                     'Create with Gemini',
