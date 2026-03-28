@@ -23,4 +23,5 @@ dev_dependencies:
 flutter:
   assets:
     - assets/dart-programming-language-icon.svg
+    - assets/gemini_logo.png
   uses-material-design: true
